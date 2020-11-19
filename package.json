@@ -1,0 +1,52 @@
+{
+  "name": "plop-pack-sanity-starter",
+  "version": "0.0.1",
+  "description": "A plop-pack for sanity-starter",
+  "main": "plopfile.js",
+  "keywords": [
+    "plop",
+    "plop-pack",
+    "plop-helper",
+    "plop-action",
+    "sanity",
+    "sanity-starter",
+    "helper",
+    "npm",
+    "install"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piersolenski/plop-pack-sanity-starter.git"
+  },
+  "author": {
+    "name": "Piers Olenski",
+    "url": "https://piersolenski.com"
+  },
+  "scripts": {
+    "lint": "eslint index.js",
+    "format": "eslint --fix index.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "node-plop": "^0.26.2",
+    "prettier": "^2.1.2"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/piersolenski/plop-pack-sanity-starter/issues"
+  },
+  "homepage": "https://github.com/piersolenski/plop-pack-sanity-starter#readme",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "edit-json-file": "^1.5.0",
+    "fuzzy": "^0.1.3",
+    "glob": "^7.1.6",
+    "inquirer-checkbox-plus-prompt": "^1.0.1",
+    "inquirer-search-list": "^1.2.6",
+    "plop": "^2.7.4",
+    "validator": "^13.1.17"
+  }
+}

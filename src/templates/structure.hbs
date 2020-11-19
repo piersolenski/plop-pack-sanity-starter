@@ -1,0 +1,13 @@
+import S from '@sanity/desk-tool/structure-builder';
+import { {{iconName}} as Icon } from 'react-icons/{{iconPack}}';
+
+export default S.listItem()
+  .title('{{titleCase name}}')
+  .icon(Icon)
+  .child(
+    S.editor()
+      .title('{{titleCase name}}')
+      .id('{{lowerCase name}}')
+      .schemaType('{{lowerCase name}}')
+      .documentId('{{lowerCase name}}')
+  );
