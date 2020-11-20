@@ -3,5 +3,6 @@ module.exports = (plop) => {
     './src/generators/object.js',
     './src/generators/document.js',
     './src/generators/bootstrap.js',
+    './src/generators/utils.js',
   ]);
 };
