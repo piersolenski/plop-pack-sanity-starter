@@ -30,6 +30,7 @@ module.exports = function (plop) {
         path: `${rootDir}/src/schemas/documents/{{camelCase name}}.js`,
         templateFile: '../templates/document.hbs',
       },
+      `Document schema created.`,
       {
         type: 'append',
         path: `${rootDir}/src/schemas/documents/index.js`,
@@ -37,17 +38,20 @@ module.exports = function (plop) {
         separator: '',
         template: `export { default as {{lowerCase name}} } from './{{lowerCase name}}';`,
       },
+      `Document schema imported.`,
       {
         type: 'add',
         path: `${rootDir}/src/structure/{{camelCase name}}.js`,
         templateFile: '../templates/structure.hbs',
       },
+      `Document structure created.`,
       {
         type: 'append',
         path: `${rootDir}/src/structure/index.js`,
         unique: 'true',
         template: `export { default as {{camelCase name}} } from './{{camelCase name}}';`,
       },
+      `Document structure imported.`,
     ],
   });
 };

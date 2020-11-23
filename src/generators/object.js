@@ -31,6 +31,7 @@ module.exports = function (plop) {
         path: `${rootDir}/src/schemas/objects/{{camelCase name}}.js`,
         templateFile: '../templates/object.hbs',
       },
+      `Object schema created.`,
       {
         type: 'append',
         path: `${rootDir}/src/schemas/objects/index.js`,
@@ -42,6 +43,7 @@ module.exports = function (plop) {
         path: `${rootDir}/src/schemas/objects/index.js`,
         transform: alphabetizeLines,
       },
+      `Object schema imported.`,
     ],
   });
 };

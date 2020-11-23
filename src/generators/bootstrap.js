@@ -30,6 +30,7 @@ module.exports = function (plop) {
         type: 'jsonEdit',
         path: `${rootDir}/package.json`,
       },
+      'Updated package.json.',
     ],
   });
 };
