@@ -1,6 +1,6 @@
 {
   "name": "plop-pack-sanity-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A plop-pack for sanity-starter",
   "main": "plopfile.js",
   "keywords": [
