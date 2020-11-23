@@ -2,9 +2,9 @@ const searchList = require('inquirer-search-list');
 const { isEmpty } = require('validator');
 var inquirer = require('inquirer');
 inquirer.registerPrompt('search-list', searchList);
-const { getFields, getTypes } = require('../utils/sanity');
 
 async function getArguments(actionType) {
+  const { getFields, getTypes } = require('../utils/sanity');
   let answers;
   switch (actionType) {
     case 'deleteType':
@@ -43,9 +43,9 @@ async function getArguments(actionType) {
           type: 'search-list',
           name: 'oldField',
           message: 'Which type do you want to migrate?',
-          choices: await getFields(parentType),
         },
         {
+          choices: await getFields(parentType),
           type: 'input',
           name: 'newField',
           message: `What should the new name of the type be?`,
@@ -60,16 +60,24 @@ async function getArguments(actionType) {
 
 module.exports = async (plop) => {
   plop.setPrompt('search-list', searchList);
-  plop.load([
-    '../actions/deleteType.js',
-    '../actions/deleteUnusedAssets.js',
-    '../actions/migrateDocumentType.js',
-    '../actions/renameField.js',
-  ]);
 
   plop.setGenerator('utils', {
     description: 'Run Sanity utility scrips',
     prompts: async () => {
+      try {
+        require('../utils/client');
+      } catch (e) {
+        console.error(e.message);
+        console.error('Make it exists in your sanity.json or .env file');
+        console.log('https://www.sanity.io/docs/studio-environment-variables');
+        return false;
+      }
+      plop.load([
+        '../actions/deleteType.js',
+        '../actions/deleteUnusedAssets.js',
+        '../actions/migrateDocumentType.js',
+        '../actions/renameField.js',
+      ]);
       const { actionType } = await inquirer.prompt({
         type: 'search-list',
         name: 'actionType',
