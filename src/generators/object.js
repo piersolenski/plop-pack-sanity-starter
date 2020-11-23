@@ -1,4 +1,5 @@
 const getIcon = require('../utils/getIcon');
+const alphabetizeLines = require('../utils/alphabetizeLines');
 const { isEmpty } = require('validator');
 
 module.exports = function (plop) {
@@ -35,6 +36,11 @@ module.exports = function (plop) {
         path: `${rootDir}/src/schemas/objects/index.js`,
         unique: 'true',
         template: `export { default as {{camelCase name}} } from './{{camelCase name}}';`,
+      },
+      {
+        type: 'modify',
+        path: `${rootDir}/src/schemas/objects/index.js`,
+        transform: alphabetizeLines,
       },
     ],
   });
