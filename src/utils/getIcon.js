@@ -4,6 +4,11 @@ const searchList = require('inquirer-search-list');
 module.exports = async function getIcon(plop) {
   inquirer.registerPrompt('search-list', searchList);
   const rootDir = plop.getDestBasePath();
+  try {
+    require(`${rootDir}/node_modules/react-icons`);
+  } catch (e) {
+    throw Error('react-icons is not installed!');
+  }
   const {
     IconsManifest,
   } = require(`${rootDir}/node_modules/react-icons/lib/cjs/iconsManifest`);
