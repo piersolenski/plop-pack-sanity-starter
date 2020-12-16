@@ -2,12 +2,20 @@ import S from '@sanity/desk-tool/structure-builder';
 import { {{iconName}} as Icon } from 'react-icons/{{iconPack}}';
 
 export default S.listItem()
-  .title('{{titleCase name}}')
+  .title('{{titleCase name}}{{#unless singleton}}s{{/unless}}')
   .icon(Icon)
   .child(
+    {{#if singleton}}
     S.editor()
       .title('{{titleCase name}}')
-      .id('{{lowerCase name}}')
-      .schemaType('{{lowerCase name}}')
-      .documentId('{{lowerCase name}}')
+      .id('{{camelCase name}}')
+      .schemaType('{{camelCase name}}')
+      .documentId('{{camelCase name}}')
+    {{else}}
+    S.documentList()
+      .title('{{titleCase name}}s')
+      .menuItems(S.documentTypeList('{{camelCase name}}').getMenuItems())
+      .filter('_type == $type && !defined(parents)')
+      .params({ type: '{{camelCase name}}' })
+    {{/if}}
   );

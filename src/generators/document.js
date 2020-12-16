@@ -14,6 +14,22 @@ module.exports = function (plop) {
           message: 'What is your document name?',
           validate: (value) => !isEmpty(value) || 'Required',
         },
+        {
+          type: 'list',
+          name: 'singleton',
+          message: 'Is the document unique or for repeated use?',
+          choices: [
+            {
+              name: 'Unique',
+              value: true,
+            },
+            {
+              name: 'Repeatable',
+              value: false,
+            },
+          ],
+          validate: (value) => !isEmpty(value) || 'Required',
+        },
       ]);
 
       const { name, pack } = await getIcon(plop);
@@ -36,7 +52,7 @@ module.exports = function (plop) {
         path: `${rootDir}/src/schemas/documents/index.js`,
         unique: 'true',
         separator: '',
-        template: `export { default as {{lowerCase name}} } from './{{lowerCase name}}';`,
+        template: `export { default as {{camelCase name}} } from './{{camelCase name}}';`,
       },
       `Document schema imported.`,
       {
@@ -49,6 +65,7 @@ module.exports = function (plop) {
         type: 'append',
         path: `${rootDir}/src/structure/index.js`,
         unique: 'true',
+        separator: '',
         template: `export { default as {{camelCase name}} } from './{{camelCase name}}';`,
       },
       `Document structure imported.`,

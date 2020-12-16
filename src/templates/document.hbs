@@ -5,6 +5,9 @@ export default {
   title: '{{sentenceCase name}}',
   type: 'document',
   icon: Icon,
+  {{#if singleton}}
+  __experimental_actions: ['update', 'publish'],
+  {{/if}}
   fields: [
     {
       name: 'title',
